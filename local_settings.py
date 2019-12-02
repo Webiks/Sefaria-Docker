@@ -1,6 +1,7 @@
 #An example of settings needed in a local_settings.py file which is ignored by git.
 # copy this file to sefaria/local_settings.py and provide local info to run_atomic.
 import os.path
+from datetime import timedelta
 relative_to_abs_path = lambda *x: os.path.join(os.path.dirname(
                                os.path.realpath(__file__)), *x)
 
@@ -43,6 +44,9 @@ CACHES = {
         "TIMEOUT": 60 * 60 * 24 * 30,
     }
 }
+
+SITE_PACKAGE = "sites.sefaria"
+
 
 SECRET_KEY = 'insert your long random secret key here !'
 
@@ -152,6 +156,25 @@ MULTISERVER_REDIS_CONFIRM_CHANNEL = "mconfirm"   # Message queue on Redis
 GOOGLE_OAUTH2_CLIENT_ID = ""
 GOOGLE_OAUTH2_CLIENT_SECRET = ""
 GOOGLE_MAPS_API_KEY = ""
+# This is the field that is actually used
+GOOGLE_OAUTH2_CLIENT_SECRET_FILEPATH = ""
+
+GEOIP_DATABASE = 'data/geoip/GeoLiteCity.dat'
+GEOIPV6_DATABASE = 'data/geoip/GeoLiteCityv6.dat'
+
+PARTNER_GROUP_EMAIL_PATTERN_LOOKUP_FILE = None
+
+# Simple JWT
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=90),
+    'ROTATE_REFRESH_TOKENS': True,
+    'SIGNING_KEY': 'a signing key: at least 256 bits',
+}
+
+# Key which identifies the Sefaria app as opposed to a user
+# using our API outside of the app. Mainly for registration
+MOBILE_APP_KEY = "MOBILE_APP_KEY"
 
 """ to use logging, in any module:
 # import the logging library
