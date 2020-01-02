@@ -19,3 +19,11 @@ services:
     depends_on:
       - mongo
       - redis
+  cache:
+    build:
+      context: .
+      dockerfile: Dockerfile-cache
+    ports:
+      - "8080:80"
+    depends_on:
+      - web
