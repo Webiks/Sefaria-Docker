@@ -20,3 +20,10 @@ services:
     depends_on:
       - mongo
       - redis
+  cache:
+    restart: always
+    image: 058331968334.dkr.ecr.eu-central-1.amazonaws.com/shitufta-cache-api
+    ports:
+      - "8080:80"
+    depends_on:
+      - web
