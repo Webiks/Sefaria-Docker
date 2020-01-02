@@ -29,8 +29,10 @@ will get you the text and all the commentary of "Berakhot" book, page 2, sub-pag
   ``` 
 
 # Run Containers in AWS EC2
-* Copy `docker-compose.cloud.yml` to the EC2 machine.
+* Copy `docker-compose.cloud.yml` and `local_settings.py` to the EC2 machine.
+  * `local_settings.py` - allow access from any host.
 * Run in EC2 machine:
   ```bash
   docker.compose -f docker-compose.cloud.yml up -d
   ``` 
+  

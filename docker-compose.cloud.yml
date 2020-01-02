@@ -14,7 +14,7 @@ services:
     image: 058331968334.dkr.ecr.eu-central-1.amazonaws.com/shitufta-sefaria-api
     command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - "$PWD/local_settings.py:/www/sefaria/local_settings.py"
+      - "$PWD/local_settings.py:/www/sefaria/local_settings.py" # allow access from any host
     ports:
       - "8000:8000"
     depends_on:
